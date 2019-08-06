@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ProductListView : View {
-    @ObjectBinding var productFetcher = ProductFetcher()
+    @ObservedObject var productFetcher = ProductFetcher()
     
     private var stateContent: AnyView {
         switch productFetcher.state {
@@ -26,7 +26,7 @@ struct ProductListView : View {
             case .success(let root):
                 return AnyView(
                     List(root.products) { product in
-                        NavigationButton(destination: ProductDetailsView(product: product)) {
+                        NavigationLink(destination: ProductDetailsView(product: product)) {
                             ProductRow(product: product)
                         }
                     }

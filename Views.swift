@@ -21,7 +21,7 @@ struct ActivityIndicator: UIViewRepresentable {
 }
 
 struct LoadableImageView: View {
-    @ObjectBinding var imageFetcher: ImageFetcher
+    @ObservedObject var imageFetcher: ImageFetcher
     
     init(with urlString: String) {
         imageFetcher = ImageFetcher(url: urlString)
